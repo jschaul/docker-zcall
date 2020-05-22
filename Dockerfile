@@ -12,6 +12,12 @@ RUN mkdir -p /src && cd /src && \
         cd wire-audio-video-signaling/ && \
         ./scripts/ubuntu_18.04_dependencies.sh
 
+RUN apt-get install -y openjdk-8-jdk
+# RUN apt-get install -y icedtea-8-plugin
+# RUN apt-get install -y icedtea-plugin
+
+RUN update-java-alternatives --jre-headless --jre --plugin -s java-1.8.0-openjdk-amd64 || true
+
 WORKDIR /src/wire-audio-video-signaling
 
 # takes ~30 minutes or more
