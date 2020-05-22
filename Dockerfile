@@ -29,4 +29,15 @@ RUN cd wire-audio-video-signaling/webrtc && \
 
 RUN xhost local:root
 
+WORKDIR /src/wire-audio-video-signaling
+
+RUN cd webrtc && ./scripts/package.sh
+
+RUN touch contrib/webrtc/webrtc_m79.local_ios.zip && \
+    touch contrib/webrtc/webrtc_m79.local_osx.zip && \
+    ./prepare.sh
+
+RUN make WEBRTC_VER=m79.local
+
+RUN make WEBRTC_VER=m79.local zcall
 
