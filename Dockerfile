@@ -22,6 +22,8 @@ RUN git clone https://github.com/jschaul/wire-audio-video-signaling.git --branch
 
 RUN apt-get install -y sudo
 
+RUN apt-get install -y x11-utils rpm p7zip libxt-dev
+
 RUN cd wire-audio-video-signaling/webrtc && \
         ./scripts/build.sh
 
