@@ -1,4 +1,11 @@
 
+Dev
+
+```
+docker run -it -v $(pwd)/src:/mnt zcall:latest /bin/bash
+# cp stuff
+```
+
 Build
 
 ```
