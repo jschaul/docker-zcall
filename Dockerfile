@@ -29,8 +29,9 @@ RUN touch contrib/webrtc/webrtc_m79.local_ios.zip && \
     touch contrib/webrtc/webrtc_m79.local_osx.zip && \
     ./prepare.sh
 
-RUN make WEBRTC_VER=m79.local
+RUN apt-get install -y rsync
+RUN export PATH="$HOME/.cargo/bin:$PATH"; make WEBRTC_VER=m79.local
 
-RUN make WEBRTC_VER=m79.local zcall
+RUN export PATH="$HOME/.cargo/bin:$PATH"; make WEBRTC_VER=m79.local zcall
 
-RUN xhost local:root
+RUN apt-get install -y x11-xserver-utils x11-apps
